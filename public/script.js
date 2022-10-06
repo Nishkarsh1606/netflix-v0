@@ -22,9 +22,9 @@ const netflixOriginals=document.getElementById('netflixOriginals')
 const trendingNow=document.getElementById('trendingNow')
 const topRated=document.getElementById('trendingNow')
 
-// window.onload=()=>{
-
-// }
+window.onload=()=>{
+    getFeaturedMovie()
+}
 
 async function getFeaturedMovie(){
     const randomPicker=Math.floor(Math.random()*20)
@@ -35,5 +35,3 @@ async function getFeaturedMovie(){
     featuredMovieTitle.textContent=selectedMovie.original_title
     document.getElementById('featuredMovieDesc').textContent=selectedMovie.overview.substring(0,150)+`...`
 }
-
-getFeaturedMovie()
