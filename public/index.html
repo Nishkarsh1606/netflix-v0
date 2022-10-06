@@ -11,47 +11,48 @@
 <body class="bg-black text-white">
      
 <!-- Feature movie section  -->
-    <section id="featured-movie" class="max-w-fit mobile-feature">
+    <section id="featured-movie" class="overflow-x-hidden">
+    <div id="featuredMovieBg" class="w-[100vw]">
         <div class="container md:ml-10 h-[50vh] flex flex-col justify-center space-y-1 max-w-full">
-            <div><h1 id="featuredMovieTitle" class="text-[2.5rem]">Title for Feature movie</h1></div>
+            <h1 id="featuredMovieTitle" class="text-[2.5rem]">Title for Feature movie</h1>
             <div class="flex space-x-2">
                 <button class="px-8 py-1.5 rounded-md bg-white text-black hover:bg-slate-200"><span class="text-xl mr-1">▶️</span>Play</button>
                 <button class="px-8 py-1.5 rounded-md bg-transparent text-white border-2 hover:bg-white hover:text-black">My List</button>
             </div>
             <div class="max-w-md">
-                <p class="text-white">Lorem ipsum dolor sit amet, consectetur<br> adipiscing elit. Nam tristique magna magna, vit...</p>
+                <p id="featuredMovieDesc" class="text-white">Lorem ipsum dolor sit amet, consectetur<br> adipiscing elit. Nam tristique magna magna, vit...</p>
             </div>
         </div>
+    </div>
     </section>
 
 <!-- Netflix originals section -->
     <section id="netflixOriginals" class="h-[50vh] md:ml-10">
         <h1 class="text-3xl font-semibold mb-10">NETFLIX ORIGINALS</h1>
-        <div class="flex space-x-5">
-            <div class="h-[38.5vh]">
-                <div class="min-h-full min-w-[13.33vw]">First Movie Card</div>
-            </div>
+        <div id="netflixOriginals" class="flex space-x-5 h-[38.5vh]">
+                <div class="min-h-full min-w-[13.33vw] border-2">Movie Card</div>
+                <div class="min-h-full min-w-[13.33vw] border-2">Movie Card</div>
+                <div class="min-h-full min-w-[13.33vw] border-2">Movie Card</div>
         </div>
     </section>
 
 <!-- Trending Now section -->
     <section id="trendingNow" class="h-[25vh] md:ml-10 mb-5">
         <h1 class="text-3xl font-semibold mb-5">TRENDING NOW</h1>
-        <div class="flex space-x-5">
-            <div class="h-[15vh]">
-                <div class=" min-h-full min-w-[13.33vw]">First Movie Card</div>
-            </div>
+        <div id="trendingNow" class="flex space-x-5 h-[15vh]">
+            <div class="min-h-full min-w-[13.33vw] border-2">Movie Card</div>
+            <div class="min-h-full min-w-[13.33vw] border-2">Movie Card</div>
+            <div class="min-h-full min-w-[13.33vw] border-2">Movie Card</div>
         </div>
     </section>
 
 <!-- Top rated movies section -->
-    <section id="topRated" class="h-[25vh] md:ml-10 mb-[10vh]">
+    <section id="topRated" class="h-[25vh] md:ml-10 mb-[5vh]">
         <h1 class="text-3xl font-semibold mb-5">TOP RATED MOVIES</h1>
-        <div class="flex space-x-5 ">
-            <div class="h-[15vh]">
-                <div class="min-h-full min-w-[13.33vw]">First Movie Card</div>
-            </div>
-        </div>
+        <div id="topRated" class="flex space-x-5 h-[15vh]">
+            <div class="min-h-full min-w-[13.33vw] border-2">Movie Card</div>
+            <div class="min-h-full min-w-[13.33vw] border-2">Movie Card</div>
+            <div class="min-h-full min-w-[13.33vw] border-2">Movie Card</div>
         </div>
     </section>
 <script src="script.js"></script>
