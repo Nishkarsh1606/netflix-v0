@@ -9,7 +9,10 @@ body {
 }
 
 .movie-card{
-    min-width: 14vw;
-    width: 14vw;
-    height: 90%;
+    min-width: 14vw !important;
+    width: 14vw !important;
+    height: 90% !important;
+    background-size:contain !important;
+    background-repeat: no-repeat !important;
+    object-fit:scale-down !important;
 }
