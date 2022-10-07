@@ -43,7 +43,7 @@ async function getNetflixOriginals(){
     for(let i=0;i<data.results.length;++i){
         let moviePoster=`${imgBaseURL}${data.results[i].poster_path}`
         netflixOriginalShows.innerHTML+=`
-        <div class="movie-card" style="background:url(${moviePoster});background-size:contain; background-repeat: no-repeat;object-fit:fill;}"></div>
+        <div class="movie-card" style="background:url(${moviePoster})"></div>
         `
         console.log(moviePoster)
     }
