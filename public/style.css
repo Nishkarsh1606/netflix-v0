@@ -5,4 +5,11 @@
 body {
     box-sizing: border-box;
     width: 100vw;
+    overflow-x: hidden;
+}
+
+.movie-card{
+    min-width: 14vw;
+    width: 14vw;
+    height: 90%;
 }
