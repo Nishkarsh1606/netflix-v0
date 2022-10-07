@@ -18,12 +18,13 @@ const imgBaseURL=`https://image.tmdb.org/t/p/w500`
 
 const featuredMovieTitle=document.getElementById('featuredMovieTitle')
 const featuredMovieBg=document.getElementById('featuredMovieBg')
-const netflixOriginals=document.getElementById('netflixOriginals')
+const netflixOriginalShows=document.getElementById('netflixOriginalShows')
 const trendingNow=document.getElementById('trendingNow')
 const topRated=document.getElementById('trendingNow')
 
 window.onload=()=>{
     getFeaturedMovie()
+    getNetflixOriginals()
 }
 
 async function getFeaturedMovie(){
@@ -35,3 +36,24 @@ async function getFeaturedMovie(){
     featuredMovieTitle.textContent=selectedMovie.original_title
     document.getElementById('featuredMovieDesc').textContent=selectedMovie.overview.substring(0,150)+`...`
 }
+
+async function getNetflixOriginals(){
+    const response=await fetch(`${getTrendingURL}`)
+    const data=await response.json()
+    for(let i=0;i<data.results.length;++i){
+        let moviePoster=`${imgBaseURL}${data.results[i].poster_path}`
+        netflixOriginalShows.innerHTML+=`
+        <div class="movie-card" style="background:url(${moviePoster});background-size:contain; background-repeat: no-repeat;object-fit:fill;}"></div>
+        `
+        console.log(moviePoster)
+    }
+}
+    // for(const movie of data.results){
+    //     netflixOriginals.innerHTML=
+    //     `
+    //         <div class="movie-card h-[10rem] bg-[url(${imgBaseURL}${movie.poster_path})]">
+    //         ${movie.title}
+    //         </div>
+    //     `
+    // console.log(data.results[0])
+    // }
