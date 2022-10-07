@@ -585,12 +585,12 @@ video {
   }
 }
 
-.mr-1 {
-  margin-right: 0.25rem;
+.fixed {
+  position: fixed;
 }
 
-.mb-10 {
-  margin-bottom: 2.5rem;
+.mr-1 {
+  margin-right: 0.25rem;
 }
 
 .mb-5 {
@@ -605,8 +605,8 @@ video {
   display: flex;
 }
 
-.hidden {
-  display: none;
+.h-10 {
+  height: 2.5rem;
 }
 
 .h-\[50vh\] {
@@ -623,6 +623,10 @@ video {
 
 .h-\[15vh\] {
   height: 15vh;
+}
+
+.h-\[10rem\] {
+  height: 10rem;
 }
 
 .min-h-full {
@@ -671,6 +675,24 @@ video {
   margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-x-3 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.75rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-1 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0.25rem * var(--tw-space-x-reverse));
+  margin-left: calc(0.25rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
+.space-x-0 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(0px * var(--tw-space-x-reverse));
+  margin-left: calc(0px * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .overflow-x-hidden {
   overflow-x: hidden;
 }
@@ -697,9 +719,12 @@ video {
   background-color: transparent;
 }
 
-.bg-purple-400 {
-  --tw-bg-opacity: 1;
-  background-color: rgb(192 132 252 / var(--tw-bg-opacity));
+.bg-\[url\(https\:\/\/image\.tmdb\.org\/t\/p\/w500\/iS9U3VHpPEjTWnwmW56CrBlpgLj\.jpg\)\] {
+  background-image: url(https://image.tmdb.org/t/p/w500/iS9U3VHpPEjTWnwmW56CrBlpgLj.jpg);
+}
+
+.bg-\[url\(\$\{imgBaseURL\}\$\{movie\.poster_path\}\)\] {
+  background-image: url(${imgBaseURL}${movie.poster_path});
 }
 
 .px-8 {
@@ -748,6 +773,13 @@ video {
 body {
   box-sizing: border-box;
   width: 100vw;
+  overflow-x: hidden;
+}
+
+.movie-card{
+  min-width: 14vw;
+  width: 14vw;
+  height: 90%;
 }
 
 .hover\:bg-slate-200:hover {
@@ -768,5 +800,9 @@ body {
 @media (min-width: 768px) {
   .md\:ml-10 {
     margin-left: 2.5rem;
+  }
+
+  .md\:mt-6 {
+    margin-top: 1.5rem;
   }
 }
