@@ -16,3 +16,9 @@ body {
     background-repeat: no-repeat !important;
     object-fit:scale-down !important;
 }
+
+.small-movie-card{
+    background-size: cover !important;
+    background-repeat: no-repeat !important;
+    background-position: center;
+}
