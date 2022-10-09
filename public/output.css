@@ -617,20 +617,12 @@ video {
   height: calc(100% - 3.5rem);
 }
 
-.min-h-full {
-  min-height: 100%;
-}
-
 .min-h-\[100\%\] {
   min-height: 100%;
 }
 
 .w-\[100vw\] {
   width: 100vw;
-}
-
-.min-w-\[13\.33vw\] {
-  min-width: 13.33vw;
 }
 
 .min-w-\[15\%\] {
@@ -665,24 +657,16 @@ video {
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
-.space-x-0 > :not([hidden]) ~ :not([hidden]) {
+.-space-x-20 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
-  margin-right: calc(0px * var(--tw-space-x-reverse));
-  margin-left: calc(0px * calc(1 - var(--tw-space-x-reverse)));
+  margin-right: calc(-5rem * var(--tw-space-x-reverse));
+  margin-left: calc(-5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-x-6 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(1.5rem * var(--tw-space-x-reverse));
   margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.overflow-x-hidden {
-  overflow-x: hidden;
-}
-
-.overflow-x-clip {
-  overflow-x: clip;
 }
 
 .rounded-md {
@@ -750,26 +734,29 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+*{
+  overflow-x: clip;
+}
+
 body{
   box-sizing: border-box;
   width: 100vw;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+
+.featureMovieBg{
+  background-size:cover !important;
+  background-repeat: no-repeat !important;
 }
 
 .movie-card{
-  min-width: 14vw !important;
-  width: 14vw !important;
+  min-width: 20% !important;
+  /* width: 14vw !important; */
   height: 90% !important;
   background-size:contain !important;
   background-repeat: no-repeat !important;
   -o-object-fit:scale-down !important;
      object-fit:scale-down !important;
-}
-
-.small-movie-card{
-  background-size: cover !important;
-  background-repeat: no-repeat !important;
-  background-position: center;
 }
 
 .hover\:bg-slate-200:hover {
@@ -787,24 +774,6 @@ body{
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-@media (min-width: 640px) {
-  .sm\:overflow-hidden {
-    overflow: hidden;
-  }
-
-  .sm\:overflow-clip {
-    overflow: clip;
-  }
-
-  .sm\:overflow-x-hidden {
-    overflow-x: hidden;
-  }
-
-  .sm\:overflow-x-clip {
-    overflow-x: clip;
-  }
-}
-
 @media (min-width: 768px) {
   .md\:ml-10 {
     margin-left: 2.5rem;
@@ -812,9 +781,5 @@ body{
 
   .md\:mt-6 {
     margin-top: 1.5rem;
-  }
-
-  .md\:overflow-x-hidden {
-    overflow-x: hidden;
   }
 }

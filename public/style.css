@@ -2,23 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+    overflow-x: clip;
+}
+
 body{
     box-sizing: border-box;
     width: 100vw;
-    overflow-x: hidden;
+    overflow-x: clip;
+}
+
+.featureMovieBg{
+    background-size:cover !important;
+    background-repeat: no-repeat !important;
 }
 
 .movie-card{
-    min-width: 14vw !important;
-    width: 14vw !important;
+    min-width: 20% !important;
+    /* width: 14vw !important; */
     height: 90% !important;
     background-size:contain !important;
     background-repeat: no-repeat !important;
     object-fit:scale-down !important;
-}
-
-.small-movie-card{
-    background-size: cover !important;
-    background-repeat: no-repeat !important;
-    background-position: center;
 }
