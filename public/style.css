@@ -12,16 +12,43 @@ body{
     overflow-x: clip;
 }
 
-.featureMovieBg{
+.featuredMovieBg{
     background-size:cover !important;
     background-repeat: no-repeat !important;
 }
 
 .movie-card{
-    min-width: 20% !important;
-    /* width: 14vw !important; */
-    height: 90% !important;
+    min-width: 10vw !important;
     background-size:contain !important;
     background-repeat: no-repeat !important;
-    object-fit:scale-down !important;
 }
+
+.movie-identifier{
+    /* this class is just to identify which card has been clicked in JavaScript */
+    border:none
+}
+
+@media only screen and (max-width: 720px) {
+    #topRated{
+        margin-bottom: 5vh;
+    }
+    #root{
+        margin-left:10px;
+    }
+    #netflixOriginalShows{
+        min-height: 10rem;
+    }
+    .small-movie-card{
+        min-width: 20%;
+        border-radius: 10px;
+    }
+    .movie-card{
+        min-width: 25% !important;
+        width: 14vw !important;
+        min-height: 90% !important;
+        margin-right: 10px;
+        border-radius: 20px;
+        background-size:contain !important;
+        background-repeat: no-repeat !important;
+    }
+  }

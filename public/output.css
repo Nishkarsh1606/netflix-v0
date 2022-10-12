@@ -555,9 +555,9 @@ video {
   width: 100%;
 }
 
-@media (min-width: 640px) {
+@media (min-width: 480px) {
   .container {
-    max-width: 640px;
+    max-width: 480px;
   }
 }
 
@@ -567,21 +567,15 @@ video {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 976px) {
   .container {
-    max-width: 1024px;
+    max-width: 976px;
   }
 }
 
-@media (min-width: 1280px) {
+@media (min-width: 1440px) {
   .container {
-    max-width: 1280px;
-  }
-}
-
-@media (min-width: 1536px) {
-  .container {
-    max-width: 1536px;
+    max-width: 1440px;
   }
 }
 
@@ -589,12 +583,12 @@ video {
   margin-right: 0.25rem;
 }
 
-.mb-5 {
-  margin-bottom: 1.25rem;
+.mt-10 {
+  margin-top: 2.5rem;
 }
 
-.mb-\[5vh\] {
-  margin-bottom: 5vh;
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 
 .flex {
@@ -603,10 +597,6 @@ video {
 
 .h-\[50vh\] {
   height: 50vh;
-}
-
-.h-\[38\.5vh\] {
-  height: 38.5vh;
 }
 
 .h-\[25vh\] {
@@ -655,12 +645,6 @@ video {
   --tw-space-x-reverse: 0;
   margin-right: calc(0.5rem * var(--tw-space-x-reverse));
   margin-left: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
-}
-
-.-space-x-20 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(-5rem * var(--tw-space-x-reverse));
-  margin-left: calc(-5rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .space-x-6 > :not([hidden]) ~ :not([hidden]) {
@@ -744,19 +728,49 @@ body{
   overflow-x: clip;
 }
 
-.featureMovieBg{
+.featuredMovieBg{
   background-size:cover !important;
   background-repeat: no-repeat !important;
 }
 
 .movie-card{
-  min-width: 20% !important;
-  /* width: 14vw !important; */
-  height: 90% !important;
+  min-width: 10vw !important;
   background-size:contain !important;
   background-repeat: no-repeat !important;
-  -o-object-fit:scale-down !important;
-     object-fit:scale-down !important;
+}
+
+.movie-identifier{
+  /* this class is just to identify which card has been clicked in JavaScript */
+  border:none
+}
+
+@media only screen and (max-width: 720px) {
+  #topRated{
+    margin-bottom: 5vh;
+  }
+
+  #root{
+    margin-left:10px;
+  }
+
+  #netflixOriginalShows{
+    min-height: 10rem;
+  }
+
+  .small-movie-card{
+    min-width: 20%;
+    border-radius: 10px;
+  }
+
+  .movie-card{
+    min-width: 25% !important;
+    width: 14vw !important;
+    min-height: 90% !important;
+    margin-right: 10px;
+    border-radius: 20px;
+    background-size:contain !important;
+    background-repeat: no-repeat !important;
+  }
 }
 
 .hover\:bg-slate-200:hover {
@@ -774,6 +788,20 @@ body{
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
+@media (min-width: 480px) {
+  .sm\:mb-\[5vh\] {
+    margin-bottom: 5vh;
+  }
+
+  .sm\:h-\[25vh\] {
+    height: 25vh;
+  }
+
+  .sm\:w-\[10vw\] {
+    width: 10vw;
+  }
+}
+
 @media (min-width: 768px) {
   .md\:ml-10 {
     margin-left: 2.5rem;
@@ -781,5 +809,19 @@ body{
 
   .md\:mt-6 {
     margin-top: 1.5rem;
+  }
+
+  .md\:h-\[50vh\] {
+    height: 50vh;
+  }
+
+  .md\:h-\[38\.5vh\] {
+    height: 38.5vh;
+  }
+
+  .md\:space-x-6 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-right: calc(1.5rem * var(--tw-space-x-reverse));
+    margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
   }
 }

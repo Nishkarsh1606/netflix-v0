@@ -14,7 +14,7 @@
     <link rel="shortcut icon" href="https://www.designmantic.com/blog/wp-content/uploads/2016/07/Netflix-Revamps-Logo-1280x720.jpg" type="image/x-icon">
 </head>
 <body class="bg-black text-white">
-     
+
 <!-- Feature movie section  -->
     <section>
     <div id="featuredMovieBg" class="w-[100vw]">
@@ -30,11 +30,11 @@
         </div>
     </div>
     </section>
-
+<div id="root">
 <!-- Netflix originals section -->
-    <section id="netflixOriginals" class="h-[50vh] md:ml-10 md:mt-6">
+    <section id="netflixOriginals" class="sm:h-[25vh] mt-10 md:h-[50vh] md:ml-10 md:mt-6">
         <h1 class="text-3xl font-semibold mb-5">NETFLIX ORIGINALS</h1>
-        <div id="netflixOriginalShows" class="flex h-[38.5vh] -space-x-20">
+        <div id="netflixOriginalShows" class="flex md:h-[38.5vh] md:space-x-6">
         </div>
     </section>
 
@@ -46,11 +46,12 @@
     </section>
 
 <!-- Top rated movies section -->
-    <section id="topRated" class="h-[25vh] md:ml-10 mb-[5vh]">
+    <section id="topRated" class="h-[25vh] md:ml-10 sm:mb-[5vh]">
         <h1 class="text-3xl font-semibold mb-5">TOP RATED MOVIES</h1>
-        <div id="topRatedMovies" class="flex h-[calc(100%-3.5rem)] space-x-6">
+        <div id="topRatedMovies" class="flex h-[calc(100%-3.5rem)] space-x-6 lg::h-[20vh]">
         </div>
     </section>
+</div>
 <script src="script.js"></script>
 </body>
 </html>

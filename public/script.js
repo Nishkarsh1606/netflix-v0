@@ -1,3 +1,6 @@
+// https://developers.themoviedb.org/3/movies/get-movie-videos -- get movie videos (get movie and TV id from response.json
+// https://developers.themoviedb.org/3/tv/get-tv-videos -- Tv show videos (get tv show id from the response.json
+
 const featuredMovieTitle=document.getElementById('featuredMovieTitle')
 const featuredMovieBg=document.getElementById('featuredMovieBg')
 const netflixOriginalShows=document.getElementById('netflixOriginalShows')
@@ -22,7 +25,7 @@ window.onload=()=>{
 //get featured movie card
 async function getFeaturedMovie(){
     const data=await fetchData(popularMovieURL)
-    featuredMovieBg.classList.add('featureMovieBg')
+    featuredMovieBg.classList.add('featuredMovieBg','movie-identifier')
     selectedMovie(data)
 }
 
@@ -50,7 +53,7 @@ displayMovieDetails=(data,targetDOMElement)=>{
         for(let i=0;i<data.results.length;++i){
             let moviePoster=`${imgBaseURL}${data.results[i].poster_path}`
             netflixOriginalShows.innerHTML+=`
-            <div class="movie-card space-x-2" style="background:url(${moviePoster})"></div>
+            <div class="movie-card sm:w-[10vw] space-x-2 movie-identifier" style="background:url(${moviePoster})"></div>
             `
         }
     }
@@ -58,7 +61,7 @@ displayMovieDetails=(data,targetDOMElement)=>{
         for(let i=0;i<data.results.length;++i){
             let moviePoster=`${imgBaseURL}${data.results[i].backdrop_path}`
             targetDOMElement.innerHTML+=`
-            <div class='small-movie-card min-h-[100%] min-w-[15%]' style="background:url(${moviePoster});background-size: cover;background-repeat: no-repeat;background-position: center; object-fit:scale-down"></div>
+            <div class='small-movie-card min-h-[100%] min-w-[15%] movie-identifier' style="background:url(${moviePoster});background-size: cover;background-repeat: no-repeat;background-position: center; object-fit:scale-down"></div>
             `
         }
     }
