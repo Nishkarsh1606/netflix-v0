@@ -93,9 +93,15 @@ btn.onclick = function () {
 }
 
 const getTrailers= async (movie_id)=>{
-    const response = await fetch(`https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${apiKeyV3}&language=en-US`)
-    const data=await response.json()
-    
+    const getTrailerURL=`https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${apiKeyV3}&language=en-US`
+    return await fetch(getTrailerURL).then(response=>{
+        if(response.ok){
+            return response.json()
+        }
+        else{
+            throw new Error('Something went wrong')
+        }
+    })
 }
 
 const setTrailers=()=>{
