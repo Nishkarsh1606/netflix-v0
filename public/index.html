@@ -4,53 +4,71 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflix</title>
     <link rel="stylesheet" href="output.css">
-    <link rel="shortcut icon" href="https://www.designmantic.com/blog/wp-content/uploads/2016/07/Netflix-Revamps-Logo-1280x720.jpg" type="image/x-icon">
+    <link rel="shortcut icon"
+        href="https://www.designmantic.com/blog/wp-content/uploads/2016/07/Netflix-Revamps-Logo-1280x720.jpg"
+        type="image/x-icon">
 </head>
-<body class="bg-black text-white">
 
-<!-- Feature movie section  -->
-    <section>
-    <div id="featuredMovieBg" class="w-[100vw]">
-        <div class="container md:ml-10 h-[50vh] flex flex-col justify-center space-y-1 max-w-full">
-            <h1 id="featuredMovieTitle" class="text-[2.5rem]">Title for Feature movie</h1>
-            <div class="flex space-x-2">
-                <button class="px-8 py-1.5 rounded-md bg-white text-black hover:bg-slate-200"><span class="text-xl mr-1">▶️</span>Play</button>
-                <button class="px-8 py-1.5 rounded-md bg-transparent text-white border-2 hover:bg-white hover:text-black">My List</button>
-            </div>
-            <div class="max-w-md">
-                <p id="featuredMovieDesc" class="text-white">Lorem ipsum dolor sit amet, consectetur<br> adipiscing elit. Nam tristique magna magna, vit...</p>
-            </div>
+<body class="bg-black text-white">
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p>Some text in the Modal..</p>
         </div>
     </div>
-    </section>
-<div id="root">
-<!-- Netflix originals section -->
-    <section id="netflixOriginals" class="sm:h-[25vh] mt-10 md:h-[50vh] md:ml-10 md:mt-6">
-        <h1 class="text-3xl font-semibold mb-5">NETFLIX ORIGINALS</h1>
-        <div id="netflixOriginalShows" class="flex md:h-[38.5vh] md:space-x-6">
-        </div>
-    </section>
 
-<!-- Trending Now section -->
-    <section id="trendingNow" class="h-[25vh] md:ml-10 mb-5">
-        <h1 class="text-3xl font-semibold mb-5">TRENDING NOW</h1>
-        <div id="trendingNowMovies" class="flex h-[calc(100%-3.5rem)] space-x-6">
+    <!-- Feature movie section  -->
+    <section>
+        <div id="featuredMovieBg" class="w-[100vw]">
+            <div class="container md:ml-10 h-[50vh] flex flex-col justify-center space-y-1 max-w-full">
+                <h1 id="featuredMovieTitle" class="text-[2.5rem]">Title for Feature movie</h1>
+                <div class="flex space-x-2">
+                    <button class="px-8 py-1.5 rounded-md bg-white text-black hover:bg-slate-200"><span
+                            class="text-xl mr-1">▶️</span>Play</button>
+                    <button
+                        class="px-8 py-1.5 rounded-md bg-transparent text-white border-2 hover:bg-white hover:text-black">My
+                        List</button>
+                </div>
+                <div class="max-w-md">
+                    <p id="featuredMovieDesc" class="text-white">Lorem ipsum dolor sit amet, consectetur<br> adipiscing
+                        elit. Nam tristique magna magna, vit...</p>
+                </div>
+            </div>
         </div>
     </section>
+    <div id="root">
 
-<!-- Top rated movies section -->
-    <section id="topRated" class="h-[25vh] md:ml-10 sm:mb-[5vh]">
-        <h1 class="text-3xl font-semibold mb-5">TOP RATED MOVIES</h1>
-        <div id="topRatedMovies" class="flex h-[calc(100%-3.5rem)] space-x-6 lg:h-[20vh]">
-        </div>
-    </section>
-</div>
-<script src="script.js"></script>
+        <!-- Netflix originals section -->
+        <section id="netflixOriginals" class="sm:h-[25vh] mt-10 md:h-[50vh] md:ml-10 md:mt-6">
+            <h1 class="text-3xl font-semibold mb-5">NETFLIX ORIGINALS</h1>
+            <div id="netflixOriginalShows" class="flex md:h-[38.5vh] md:space-x-6">
+            </div>
+        </section>
+
+        <!-- Trending Now section -->
+        <section id="trendingNow" class="h-[25vh] md:ml-10 mb-5">
+            <h1 class="text-3xl font-semibold mb-5">TRENDING NOW</h1>
+            <div id="trendingNowMovies" class="flex h-[calc(100%-3.5rem)] space-x-6">
+            </div>
+        </section>
+
+        <!-- Top rated movies section -->
+        <section id="topRated" class="h-[25vh] md:ml-10 sm:mb-[5vh]">
+            <h1 class="text-3xl font-semibold mb-5">TOP RATED MOVIES</h1>
+            <div id="topRatedMovies" class="flex h-[calc(100%-3.5rem)] space-x-6 lg:h-[20vh]">
+            </div>
+        </section>
+    </div>
+    <script src="script.js"></script>
 </body>
+
 </html>

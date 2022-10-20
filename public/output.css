@@ -591,6 +591,10 @@ video {
   margin-bottom: 1.25rem;
 }
 
+.block {
+  display: block;
+}
+
 .flex {
   display: flex;
 }
@@ -718,59 +722,113 @@ video {
   color: rgb(0 0 0 / var(--tw-text-opacity));
 }
 
-*{
+* {
   overflow-x: clip;
 }
 
-body{
+body {
   box-sizing: border-box;
   width: 100vw;
   overflow-x: clip;
 }
 
-.featuredMovieBg{
-  background-size:cover !important;
+.featuredMovieBg {
+  background-size: cover !important;
   background-repeat: no-repeat !important;
 }
 
-.movie-card{
+.movie-card {
   min-width: 10vw !important;
-  background-size:contain !important;
+  background-size: contain !important;
   background-repeat: no-repeat !important;
 }
 
-.movie-identifier{
-  /* this class is just to identify which card has been clicked in JavaScript */
-  border:none
+.movie-card:hover{
+  cursor: pointer;
+}
+
+.movie-identifier:hover{
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 720px) {
-  #topRated{
+  #topRated {
     margin-bottom: 5vh;
   }
 
-  #root{
-    margin-left:10px;
+  #root {
+    margin-left: 10px;
   }
 
-  #netflixOriginalShows{
+  #netflixOriginalShows {
     min-height: 10rem;
   }
 
-  .small-movie-card{
+  .small-movie-card {
     min-width: 20%;
     border-radius: 10px;
   }
 
-  .movie-card{
+  .movie-card {
     min-width: 25% !important;
     width: 14vw !important;
     min-height: 90% !important;
     margin-right: 10px;
     border-radius: 20px;
-    background-size:contain !important;
+    background-size: contain !important;
     background-repeat: no-repeat !important;
   }
+}
+
+/* The Modal (background) */
+
+.modal {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Stay in place */
+  z-index: 1;
+  /* Sit on top */
+  padding-top: 100px;
+  /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%;
+  /* Full width */
+  height: 100%;
+  /* Full height */
+  overflow: auto;
+  /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0);
+  /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.4);
+  /* Black w/ opacity */
+}
+
+/* Modal Content */
+
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .hover\:bg-slate-200:hover {
@@ -823,5 +881,11 @@ body{
     --tw-space-x-reverse: 0;
     margin-right: calc(1.5rem * var(--tw-space-x-reverse));
     margin-left: calc(1.5rem * calc(1 - var(--tw-space-x-reverse)));
+  }
+}
+
+@media (min-width: 976px) {
+  .lg\:h-\[20vh\] {
+    height: 20vh;
   }
 }
