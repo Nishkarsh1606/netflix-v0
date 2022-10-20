@@ -735,21 +735,20 @@ body {
 .featuredMovieBg {
   background-size: cover !important;
   background-repeat: no-repeat !important;
-  -o-object-fit: contain !important;
-     object-fit: contain !important;
 }
 
 .movie-card {
   min-width: 10vw !important;
-  background-size:contain !important;
+  background-size: contain !important;
   background-repeat: no-repeat !important;
-  -o-object-fit: contain !important;
-     object-fit: contain !important;
 }
 
-.movie-identifier {
-  /* this class is just to identify which card has been clicked in JavaScript */
-  border: none
+.movie-card:hover{
+  cursor: pointer;
+}
+
+.movie-identifier:hover{
+  cursor: pointer;
 }
 
 @media only screen and (max-width: 720px) {
@@ -778,8 +777,6 @@ body {
     border-radius: 20px;
     background-size: contain !important;
     background-repeat: no-repeat !important;
-    -o-object-fit: contain !important;
-       object-fit: contain !important;
   }
 }
 
@@ -812,14 +809,10 @@ body {
 
 .modal-content {
   background-color: #fefefe;
-  color: black;
   margin: auto;
   padding: 20px;
   border: 1px solid #888;
-  top: 40vh;
-  left: 25vw;
-  width: 50%;
-  position: absolute;
+  width: 80%;
 }
 
 /* The Close Button */
@@ -876,8 +869,8 @@ body {
     margin-top: 1.5rem;
   }
 
-  .md\:h-\[40vh\] {
-    height: 40vh;
+  .md\:h-\[50vh\] {
+    height: 50vh;
   }
 
   .md\:h-\[38\.5vh\] {
