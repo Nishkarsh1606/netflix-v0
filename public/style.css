@@ -15,13 +15,16 @@ body {
 .featuredMovieBg {
     background-size: cover !important;
     background-repeat: no-repeat !important;
+    object-fit: contain !important;
 }
 
 .movie-card {
     min-width: 10vw !important;
     background-size: contain !important;
     background-repeat: no-repeat !important;
+    object-fit: contain !important;
 }
+
 
 .movie-card:hover{
     cursor: pointer;
@@ -29,6 +32,10 @@ body {
 
 .movie-identifier:hover{
     cursor: pointer;
+}
+.movie-identifier {
+    /* this class is just to identify which card has been clicked in JavaScript */
+    border: none
 }
 
 @media only screen and (max-width: 720px) {
@@ -57,6 +64,7 @@ body {
         border-radius: 20px;
         background-size: contain !important;
         background-repeat: no-repeat !important;
+        object-fit: contain !important;
     }
 }
 
@@ -91,6 +99,15 @@ body {
     padding: 20px;
     border: 1px solid #888;
     width: 80%;
+    color: black;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    top: 40vh;
+    left: 25vw;
+    width: 50%;
+    position: absolute;
+
 }
 
 /* The Close Button */
