@@ -15,6 +15,7 @@ body {
 .featuredMovieBg {
     background-size: cover !important;
     background-repeat: no-repeat !important;
+    transform: scale(1, 1) !important; /*To negate scale effects in movie-identifier:hover class */
 }
 
 .movie-card {
@@ -23,12 +24,9 @@ body {
     background-repeat: no-repeat !important;
 }
 
-.movie-card:hover{
-    cursor: pointer;
-}
-
 .movie-identifier:hover{
     cursor: pointer;
+    transform: scale(1.2, 1.2);
 }
 
 @media only screen and (max-width: 720px) {
@@ -59,11 +57,6 @@ body {
         background-repeat: no-repeat !important;
     }
 }
-
-/* @media only screen and (min-width:1080px){
-
-} */
-
 
 /* The Modal (background) */
 .modal {

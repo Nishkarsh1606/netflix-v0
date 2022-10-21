@@ -735,6 +735,8 @@ body {
 .featuredMovieBg {
   background-size: cover !important;
   background-repeat: no-repeat !important;
+  transform: scale(1, 1) !important;
+  /*To negate scale effects in movie-identifier:hover class */
 }
 
 .movie-card {
@@ -743,12 +745,9 @@ body {
   background-repeat: no-repeat !important;
 }
 
-.movie-card:hover{
-  cursor: pointer;
-}
-
 .movie-identifier:hover{
   cursor: pointer;
+  transform: scale(1.2, 1.2);
 }
 
 @media only screen and (max-width: 720px) {
@@ -779,10 +778,6 @@ body {
     background-repeat: no-repeat !important;
   }
 }
-
-/* @media only screen and (min-width:1080px){
-
-} */
 
 /* The Modal (background) */
 
@@ -881,18 +876,6 @@ body {
     height: 38.5vh;
   }
 
-  .md\:h-\[43vh\] {
-    height: 43vh;
-  }
-
-  .md\:h-\[4344vh\] {
-    height: 4344vh;
-  }
-
-  .md\:h-\[45vh\] {
-    height: 45vh;
-  }
-
   .md\:space-x-6 > :not([hidden]) ~ :not([hidden]) {
     --tw-space-x-reverse: 0;
     margin-right: calc(1.5rem * var(--tw-space-x-reverse));
@@ -907,19 +890,7 @@ body {
 }
 
 @media (min-width: 1440px) {
-  .xl\:h-\[45vh\] {
-    height: 45vh;
-  }
-
-  .xl\:h-\[450vh\] {
-    height: 450vh;
-  }
-
   .xl\:h-\[40vh\] {
     height: 40vh;
-  }
-
-  .xl\:border-2 {
-    border-width: 2px;
   }
 }
