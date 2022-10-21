@@ -6,10 +6,8 @@ const featuredMovieBg = document.getElementById('featuredMovieBg')
 const netflixOriginalShows = document.getElementById('netflixOriginalShows')
 const trendingNow = document.getElementById('trendingNowMovies')
 const topRated = document.getElementById('topRatedMovies')
-const modal = document.getElementById("myModal");
-const btn = document.getElementById("myBtn");
-// Get the <span> element that closes the modal
-const span = document.getElementsByClassName("close")[0];
+const modal = document.getElementById("myModal")
+const span = document.getElementsByClassName("close")[0] // Get the <span> element that closes the modal
 
 //All URLs
 const apiKeyV3 = 'dd4d3b66bfd5b093fcb316890e461252'
@@ -30,7 +28,7 @@ window.onload = () => {
 async function getFeaturedMovie() {
     const data = await fetchData(popularMovieURL)
     featuredMovieBg.classList.add('featuredMovieBg', 'movie-identifier')
-    selectedMovie(data)
+    featuredMovie(data)
 }
 
 //get all netflix original movies
@@ -56,16 +54,19 @@ displayMovieDetails = (data, targetDOMElement) => {
     if (targetDOMElement === netflixOriginalShows) {
         for (let i = 0; i < data.results.length; ++i) {
             let moviePoster = `${imgBaseURL}${data.results[i].poster_path}`
-            netflixOriginalShows.innerHTML += `
-            <div class="movie-card sm:w-[10vw] space-x-2 movie-identifier" style="background:url(${moviePoster})"></div>
+            let movieID=data.results[i].id
+            netflixOriginalShows.innerHTML += 
+            `
+            <div id=${movieID} class="movie-card sm:w-[10vw] space-x-2 movie-identifier" style="background:url(${moviePoster})"></div>
             `
         }
     }
     else {
         for (let i = 0; i < data.results.length; ++i) {
             let moviePoster = `${imgBaseURL}${data.results[i].backdrop_path}`
+            let movieID=data.results[i].id
             targetDOMElement.innerHTML += `
-            <div class='small-movie-card min-h-[100%] min-w-[15%] movie-identifier' style="background:url(${moviePoster});background-size: cover;background-repeat: no-repeat;background-position: center; object-fit:scale-down"></div>
+            <div id=${movieID} class='small-movie-card min-h-[100%] min-w-[15%] movie-identifier' style="background:url(${moviePoster});background-size: cover;background-repeat: no-repeat;background-position: center; object-fit:scale-down"></div>
             `
         }
     }
@@ -79,7 +80,7 @@ fetchData = async (url) => {
 }
 
 //modifying star/selected movie information
-selectedMovie = (data) => {
+featuredMovie = (data) => {
     const randomPicker = Math.floor(Math.random() * 20)
     let selectedMovie = data.results[randomPicker]
     featuredMovieBg.style.background = `url(${imgBaseURL}${selectedMovie.backdrop_path})`
@@ -96,7 +97,8 @@ const getTrailers= async (movie_id)=>{
     const getTrailerURL=`https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${apiKeyV3}&language=en-US`
     return await fetch(getTrailerURL).then(response=>{
         if(response.ok){
-            return response.json()
+            let data=response.json()
+            return (data.results[0].key)
         }
         else{
             throw new Error('Something went wrong')
@@ -104,8 +106,8 @@ const getTrailers= async (movie_id)=>{
     })
 }
 
-const setTrailers=()=>{
-    //incomplete
+const showTrailers=()=>{
+
 }
 
 // When the user clicks on (x), close the modal
