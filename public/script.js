@@ -8,6 +8,9 @@ const trendingNow = document.getElementById('trendingNowMovies')
 const topRated = document.getElementById('topRatedMovies')
 const modal = document.getElementById("myModal")
 const span = document.getElementsByClassName("close")[0] // Get the <span> element that closes the modal
+const allMovies = document.getElementsByClassName('movie-identifier') 
+const modalContent=document.getElementById('modalContent')
+const modalText=document.getElementById('modalText')
 
 //All URLs
 const apiKeyV3 = 'dd4d3b66bfd5b093fcb316890e461252'
@@ -49,6 +52,73 @@ async function getTopRated() {
     displayMovieDetails(data, topRated)
 }
 
+//show movie trailer when a particular movie is selected
+const showMovieTrailers= async (id)=>{
+    let trailerKey= await getTrailerKey(id)
+    if(trailerKey!==false){
+        let youtubeTrailerURL=`https://www.youtube.com/embed/${trailerKey}`
+        modal.style.display = "block";
+        modalFunctionality()
+        modalContent.innerHTML=`
+        <iframe
+              src="${youtubeTrailerURL}"
+              width="1000px"
+              height="500px"
+              src=""
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+        ></iframe>
+    `
+    }
+    else{
+        modal.style.display = "block";
+        modalFunctionality()
+        alert(`invalid API Request`)
+        modalContent.innerHTML=
+        `
+        <div style='display:flex;flex-direction:column;align-items:center;color:black;'>
+        <h1>THIS API SUCKS. THE TRAILER YOU REQUESTED STILL HASNT BEEN INDEXED BY THIS OLD-JANKY API.</h1>
+        <h3>In case you want to use this project for your personal use and want me to shift to an API that is response 99% of the times contact me on Github @Nishkarsh1606 </h3>
+        </div>
+        `
+    }
+}
+
+//show all netflix originals trailer
+const showNetflixTrailers= async (id)=>{
+    let trailerKey= await getNetflixTrailerKey(id)
+    if(trailerKey!==false){
+        let youtubeTrailerURL=`https://www.youtube.com/embed/${trailerKey}`
+        modal.style.display = "block";
+        modalFunctionality()
+        modalContent.innerHTML=`
+        <iframe
+              src="${youtubeTrailerURL}"
+              width="1000px"
+              height="500px"
+              src=""
+              frameborder="0"
+              allow="autoplay; encrypted-media"
+              allowfullscreen
+        ></iframe>
+    `
+    }
+    else{
+        modal.style.display = "block";
+        modalFunctionality()
+        alert(`invalid API Request`)
+        modalContent.innerHTML=
+        `
+        <div style='display:flex;flex-direction:column;align-items:center;color:black;'>
+        <h1>THIS API SUCKS. THE TRAILER YOU REQUESTED STILL HASNT BEEN INDEXED BY THIS OLD-JANKY API.</h1>
+        <h3>In case you want to use this project for your personal use and want me to shift to an API that is response 99% of the times contact me on Github @Nishkarsh1606 </h3>
+        </div>
+        `
+    }
+}
+
+
 //function to display movie information
 displayMovieDetails = (data, targetDOMElement) => {
     if (targetDOMElement === netflixOriginalShows) {
@@ -57,7 +127,7 @@ displayMovieDetails = (data, targetDOMElement) => {
             let movieID=data.results[i].id
             netflixOriginalShows.innerHTML += 
             `
-            <div id=${movieID} class="movie-card sm:w-[10vw] space-x-2 movie-identifier" style="background:url(${moviePoster})"></div>
+            <div onclick=showNetflixTrailers(${movieID}) id=${movieID} class="movie-card sm:w-[10vw] space-x-2 movie-identifier" style="background:url(${moviePoster})"></div>
             `
         }
     }
@@ -66,7 +136,7 @@ displayMovieDetails = (data, targetDOMElement) => {
             let moviePoster = `${imgBaseURL}${data.results[i].backdrop_path}`
             let movieID=data.results[i].id
             targetDOMElement.innerHTML += `
-            <div id=${movieID} class='small-movie-card min-h-[100%] min-w-[15%] movie-identifier' style="background:url(${moviePoster});background-size: cover;background-repeat: no-repeat;background-position: center; object-fit:scale-down"></div>
+            <div onclick=showMovieTrailers(${movieID}) id=${movieID} class='small-movie-card min-h-[100%] min-w-[15%] movie-identifier' style="background:url(${moviePoster});background-size: cover;background-repeat: no-repeat;background-position: center; object-fit:scale-down"></div>
             `
         }
     }
@@ -88,36 +158,38 @@ featuredMovie = (data) => {
     document.getElementById('featuredMovieDesc').textContent = selectedMovie.overview.substring(0, 150) + `...`
 }
 
-// When the user clicks the button, open the modal 
-btn.onclick = function () {
-    modal.style.display = "block";
+const getTrailerKey= async (id)=>{
+    const response=await fetch(`https://api.themoviedb.org/3/movie/${id}/videos?api_key=dd4d3b66bfd5b093fcb316890e461252&language=en-US`)
+    const data= await response.json()
+    if(data.results.length>0){
+        //if results array contains something means the API is working
+        return(data.results[0].key)
+    }
+    else{
+        return (false)
+    }
 }
 
-const getTrailers= async (movie_id)=>{
-    const getTrailerURL=`https://api.themoviedb.org/3/movie/${movie_id}/videos?api_key=${apiKeyV3}&language=en-US`
-    return await fetch(getTrailerURL).then(response=>{
-        if(response.ok){
-            let data=response.json()
-            return (data.results[0].key)
+const getNetflixTrailerKey= async (id)=>{
+    const response=await fetch(`https://api.themoviedb.org/3/tv/${id}/videos?api_key=dd4d3b66bfd5b093fcb316890e461252&language=en-US`)
+    const data= await response.json()
+    if(data.results.length>0){
+        //if results array contains something means the API is working
+        return(data.results[0].key)
+    }
+    else{
+        return (false)
+    }
+}
+
+
+function modalFunctionality(){
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
         }
-        else{
-            throw new Error('Something went wrong')
-        }
-    })
-}
-
-const showTrailers=()=>{
-
-}
-
-// When the user clicks on (x), close the modal
-span.onclick = function () {
-    modal.style.display = "none";
-}
-
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
-    if (event.target == modal) {
+    }
+    span.onclick = function () {
         modal.style.display = "none";
     }
 }
